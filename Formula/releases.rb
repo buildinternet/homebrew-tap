@@ -25,7 +25,10 @@ class Releases < Formula
   end
 
   def install
-    bin.install "releases"
+    # Single-binary .gz decompresses to a platform-suffixed filename
+    # (e.g. releases-darwin-arm64). Rename to "releases" on install.
+    binary = Dir["releases-*"].find { |f| File.file?(f) }
+    bin.install binary => "releases"
   end
 
   test do
