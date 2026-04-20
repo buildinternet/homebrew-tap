@@ -1,26 +1,26 @@
 class Releases < Formula
   desc "Changelog indexer and registry for AI agents and developers"
   homepage "https://releases.sh"
-  version "0.16.0"
+  version "0.16.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-darwin-arm64.gz"
-      sha256 "01bf5c3a62f4a907155b86b2c84517a62133ce6b1b788053e41d142139a56b19"
+      sha256 "1d4b1fea296a8c8e51886b171f5f26edf3d1af2f3c362c17cb514eb9ac2b5583"
     else
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-darwin-x64.gz"
-      sha256 "77e81068c859473249c04681605ff6b5ea89eaa8b1ae8368308c9f643619fe11"
+      sha256 "c7476d41eb64b284b594fa18390bdf99a100348eb5421e0a1dcdf9156dc6b7e9"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-linux-arm64.gz"
-      sha256 "e0ab8794a050632848e3c0ec452a13ed88e583fd4e692451761f188819c348ce"
+      sha256 "59b9ea33fe218879d4afb1ff78e68f22898ac404a78ee0529600507b734a443e"
     else
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-linux-x64.gz"
-      sha256 "13fe642caef0c6a62482ae4edc70e61c81bc35dfbc5b22d115c6357b527e17f3"
+      sha256 "447812ce74f559afe15a4ae9f67816132498295d905a1117c70d0acef8269d79"
     end
   end
 
