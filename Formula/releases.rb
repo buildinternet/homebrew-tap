@@ -1,26 +1,26 @@
 class Releases < Formula
   desc "Changelog indexer and registry for AI agents and developers"
   homepage "https://releases.sh"
-  version "0.37.0"
+  version "0.38.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-darwin-arm64.gz"
-      sha256 "c9589dff6e95f32372010d0fa2eeb700db7b03f01ad07a0af87022f1b31639f7"
+      sha256 "689c1977f9726064ec501c955c052f866844a73052b34c37aca2ce34487ddbd1"
     else
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-darwin-x64.gz"
-      sha256 "9b47229f910a76553621fab5d26bd028e6147311ce10deae3372476a3174fe30"
+      sha256 "2e5d50a3b6026e58fc81101ea3e0d9f7b97b145ff01803115a7a74cad0de07a8"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-linux-arm64.gz"
-      sha256 "eebebff1c81cc9242525c14d271f588f95b2c3b2ba644032a17ef9281cc0684b"
+      sha256 "8088425808c76adcb98701c51cc00e269402f54674fa3b2044ba680bf987310d"
     else
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-linux-x64.gz"
-      sha256 "134e5e7613aa61d1e644c21ceb51701a3c42ee132f8457be386e4485e5644f8c"
+      sha256 "db4c95736560186eae3bea6965d47c5f2aa929e27a8d89656093e0960e5f3c7d"
     end
   end
 
@@ -29,9 +29,12 @@ class Releases < Formula
     # (e.g. releases-darwin-arm64). Rename to "releases" on install.
     binary = Dir["releases-*"].find { |f| File.file?(f) }
     bin.install binary => "releases"
+
+    generate_completions_from_executable(bin/"releases", "completion", shells: [:bash, :zsh, :fish])
   end
 
   test do
     assert_match "releases", shell_output("#{bin}/releases --version")
+    assert_match "complete -F _releases releases", shell_output("#{bin}/releases completion bash")
   end
 end
