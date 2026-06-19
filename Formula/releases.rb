@@ -1,26 +1,26 @@
 class Releases < Formula
   desc "Changelog and release-notes registry for developers and AI agents"
   homepage "https://releases.sh"
-  version "0.62.1"
+  version "0.63.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-darwin-arm64.gz"
-      sha256 "0f2d9a5e850dc1bd8779c6a8e6810cb06e879bfd612e90480d430f5706bda008"
+      sha256 "96346b6cdc986f7096d6f6dd5473d57aab64472dee0a4aa2d706c4fcbd7cf461"
     else
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-darwin-x64.gz"
-      sha256 "0ea21718f63f639ca6c3244642289ec6afb5080dbe03b49db4f16bc4adb2d324"
+      sha256 "6e4a91bb95ea5708d1d433d00d687b35e080301667f0cd6c9d86d19915c44049"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-linux-arm64.gz"
-      sha256 "9d253d72b4494b89317d8fad2a6d823e8946e1cd48fcb39dacd555ba83ce6aaa"
+      sha256 "b2bd046d524ed32ae5e703827bfca13c918c0ec2f928210f3c24c2afe63f7c3a"
     else
       url "https://github.com/buildinternet/releases-cli/releases/download/v#{version}/releases-linux-x64.gz"
-      sha256 "c1c555151ef407dbb5a4d278c5824343106527bd2c941774bb728729c696aa65"
+      sha256 "ad2b55aeca782b57c5cf0269ad1043223a969a46664af75db8ffd0f8b90a0e29"
     end
   end
 
